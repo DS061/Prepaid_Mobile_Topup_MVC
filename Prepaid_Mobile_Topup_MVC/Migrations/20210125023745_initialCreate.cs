@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Prepaid_Mobile_Topup_MVC.Migrations
@@ -97,6 +98,8 @@ namespace Prepaid_Mobile_Topup_MVC.Migrations
                 name: "IX_TopUp_TopUpChannelId",
                 table: "TopUp",
                 column: "TopUpChannelId");
+            var sqlFile = Path.Combine(".\\DatabaseScripts", @"data.sql");
+            migrationBuilder.Sql(File.ReadAllText(sqlFile));
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
