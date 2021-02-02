@@ -51,8 +51,8 @@ namespace Prepaid_Mobile_Topup_MVC.Controllers
         // GET: TopUps/Create
         public IActionResult Create()
         {
-            ViewData["MobileAccountId"] = new SelectList(_context.MobileAccount, "Id", "Id");
-            ViewData["TopUpChannelId"] = new SelectList(_context.TopUpChannel, "Id", "Id");
+            ViewData["MobileAccountId"] = new SelectList(_context.MobileAccount, "Id", "Number");
+            ViewData["TopUpChannelId"] = new SelectList(_context.TopUpChannel, "Id", "Name");
             return View();
         }
 
@@ -88,8 +88,8 @@ namespace Prepaid_Mobile_Topup_MVC.Controllers
             {
                 return NotFound();
             }
-            ViewData["MobileAccountId"] = new SelectList(_context.MobileAccount, "Id", "Id", topUp.MobileAccountId);
-            ViewData["TopUpChannelId"] = new SelectList(_context.TopUpChannel, "Id", "Id", topUp.TopUpChannelId);
+            ViewData["MobileAccountId"] = new SelectList(_context.MobileAccount, "Id", "Number", topUp.MobileAccountId);
+            ViewData["TopUpChannelId"] = new SelectList(_context.TopUpChannel, "Id", "Name", topUp.TopUpChannelId);
             return View(topUp);
         }
 
